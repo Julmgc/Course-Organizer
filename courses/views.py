@@ -1,13 +1,15 @@
-from django.db.utils import IntegrityError
 from accounts.permissions import Instructor
 from django.contrib.auth.models import User
-from rest_framework import  status
+from django.db.utils import IntegrityError
+from django.shortcuts import get_object_or_404
+from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
 from .models import Course
 from .serializers import CourseSerializer
-from django.shortcuts import get_object_or_404
+
 
 class CourseView(APIView):
     authentications_classes = [TokenAuthentication]

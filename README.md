@@ -1,27 +1,38 @@
+​<div align ="center">
+
 ## <font size="7">**Kanvas**</font>
 
-​
+</div>
+<br></br>
+<div align ="center" >
 
-```json
-This is an app for a school, that allows instructors, facilitators and students to register, create courses, activities and
+<font size="6">Description </font>
+
+</div>
+<br></br>
+<div align ="center" font size="4">
+<font size="4">This is an app for a school, that allows instructors, facilitators and students to register, create courses, activities and
 submit them. The technologies used were, Django, Django rest_framework and SQLite.
 
-License: MIT
+License: MIT</font>
 
-```
+</div>
+<div align ="center" >
 
-## <font size="4">Base URL: </font>
+<font size="6">Base URL: </font>
 
-## <font size="3">/api </font>
+</div>
+<div align ="center">
+<font size="4">/api</font>
+</div>
 
-<br></br>
-
-## <font size="3"> How to install </font>
-
+<div align ="center">
+ <font size="6">How to install</font>
+</div>
 ​
 
-```json
-On your terminal, choose where you would like to clone the project, paste git clone paste_the_copy_link_here, then cd kanvas.
+<div align ="center" font size="4">
+<font size="4">On your terminal, choose where you would like to clone the project, paste git clone paste_the_copy_link_here, then cd kanvas.
 Create a virtual environment: python -m venv venv, get inside the venv source venv/bin/activate, now install all dependencies:
 
 pip install -r requirements.txt
@@ -32,28 +43,27 @@ python manage.py makemigrations
 
 python manage.py migrate
 
-In order to use this app you should use an application for API testing, like postman, insomnia, etc.
+In order to use this app you should use an application for API testing, like postman, insomnia, etc.</font>
 
-```
+</div>
+<br></br>
+<div align ="center">
+<font size="6">Routes</font>
+</div>
+<br></br>
+<div align ="center">
 
-## <font size="6">Routes</font>
+<font size="4">POST /accounts/</font>
+<br></br>
+<font size="4">Register users</font>
 
-### <font color="gree"> POST </font> Register
+</div>
 
-​
-
-```json
-/api/accounts/
-```
-
-<font color="caramel"> _Request_ </font>
-
-```json
-To create an student, pass is_superuser and is_staff as False, for an instructor pass is_superuser and is_staff as True, to create
-a facilitator pass is_superuser as False and is_staff as True.
-```
+<font size="4">To create an student, pass is_superuser and is_staff as False, for an instructor pass is_superuser and is_staff as True, to create
+a facilitator pass is_superuser as False and is_staff as True.</font>
 
 ​
+<font color="caramel"> Request </font>
 
 ```json
 {
@@ -77,15 +87,24 @@ a facilitator pass is_superuser as False and is_staff as True.
 }
 ```
 
-### <font color="gree"> POST </font> Login
+<div align ="center">
 
+<font size="4">POST /login/</font>
+<br></br>
+<font size="4">Login</font>
+
+</div>
+<font color="caramel"> Request </font>
 ​
 
 ```json
-/api/login
+{
+  "username": "Chris",
+  "password": "Ni342ki"
+}
 ```
 
-<font color="caramel"> _Request_ </font>
+<font color="caramel"> Response </font>
 ​
 
 ```json
@@ -96,19 +115,19 @@ a facilitator pass is_superuser as False and is_staff as True.
 
 ​
 
-### <font color="gree"> POST </font> Create a course
+​<div align ="center">
 
-​
+<font size="4">POST /courses/</font>
+<br></br>
+<font size="4">Create a course</font>
 
-```json
-freeladev.com/api/login
-```
+</div>
+<div align ="center">
+<font size="4">You must be an instructor to create a course.</font>
 
-```json
-You must be an instructor to create a course.
-```
-
-<font color="caramel"> _Request_ </font>
+</div>
+<br></br>
+<font color="caramel"> Request </font>
 ​
 
 ```json
@@ -129,13 +148,15 @@ You must be an instructor to create a course.
 }
 ```
 
-### <font color="purple"> GET </font> List of all courses **\***
+​​<div align ="center">
 
-​
+<font size="4">GET /courses/</font>
+<br></br>
+<font size="4">List of all courses</font>
 
-```json
-/api/courses
-```
+</div>
+
+<font color="caramel"> Response </font>
 
 ```json
 {
@@ -152,20 +173,19 @@ You must be an instructor to create a course.
 }
 ```
 
-### <font color="gree"> PUT </font> Change a course name
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/courses/<int:course_id>/
-```
+<font size="4">PUT /courses/<int:course_id>/</font>
+<br></br>
+<font size="4">Change a course name</font>
+<br></br>
+<font size="4">You must be an instructor to change the course name.</font>
 
-```json
-You must be an instructor to change the course name.
-```
+</div>
 
-<font color="caramel"> _Request_ </font>
-​
+<font color="caramel"> Request </font>
 
 ```json
 {
@@ -185,19 +205,20 @@ You must be an instructor to change the course name.
 }
 ```
 
-### <font color="gree"> PUT </font> Change the course students
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/courses/<int:course_id>/registrations/
-```
+<font size="4">PUT /courses/<int:course_id>/registrations/</font>
+<br></br>
+<font size="4">Change the course students</font>
+<br></br>
+<font size="4">You must be an instructor to change the course students.</font>
 
-```json
-You must be an instructor to change the course students.
-```
+</div>
 
-<font color="caramel"> _Request_ </font>
+<font color="caramel"> Request </font>
+
 ​
 
 ```json
@@ -227,9 +248,17 @@ You must be an instructor to change the course students.
 }
 ```
 
-### <font color="purple"> GET </font> list a specific course
+<br></br>
 
-​
+<div align ="center">
+
+<font size="4">GET /courses/<int:course_id>/</font>
+<br></br>
+<font size="4">Return a specific course</font>
+
+</div>
+
+<font color="caramel"> Response </font>
 
 ```json
 /api/courses/<int:course_id>/
@@ -243,17 +272,17 @@ You must be an instructor to change the course students.
 }
 ```
 
-### <font color="gree"> DELETE </font> Delete a course
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/courses/<int:course_id>/
-```
+<font size="4">DELETE /courses/<int:course_id>/</font>
+<br></br>
+<font size="4">Delete a course</font>
+<br></br>
+<font size="4">You must be an instructor to delete a course.</font>
 
-```json
-You must be an instructor to delete a course.
-```
+</div>
 
 ​
 <font color="yellow"> _Response_ </font>
@@ -263,17 +292,17 @@ You must be an instructor to delete a course.
 NO CONTENT, 204
 ```
 
-### <font color="gree"> POST </font> Create an activity
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/activities/
-```
+<font size="4">POST /activities/</font>
+<br></br>
+<font size="4">Create an activity</font>
+<br></br>
+<font size="4">You must be an instructor or a facilitator in order to create an activity.</font>
 
-```json
-You must be an instructor or a facilitator in order to create an activity.
-```
+</div>
 
 <font color="caramel"> _Request_ </font>
 ​
@@ -298,17 +327,17 @@ You must be an instructor or a facilitator in order to create an activity.
 }
 ```
 
-### <font color="purple"> GET </font> List all activities
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/activities/
-```
+<font size="4">GET /activities/</font>
+<br></br>
+<font size="4"> List all activities</font>
+<br></br>
+<font size="4">You must be an instructor or a facilitator in order to see all activities.</font>
 
-```json
-You must be an instructor or a facilitator in order to create an activity.
-```
+</div>
 
 <font color="yellow"> _Response_ </font>
 ​
@@ -330,17 +359,17 @@ You must be an instructor or a facilitator in order to create an activity.
 }
 ```
 
-### <font color="gree"> PUT </font> Change the title and the points of an activity
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/activities/<int:activity_id>/
-```
+<font size="4">PUT /activities/<int:activity_id>/</font>
+<br></br>
+<font size="4"> Change the title and the points of an activity</font>
+<br></br>
+<font size="4">You must be an instructor or a facilitator in order to change an activity.</font>
 
-```json
-You must be an instructor or a facilitator in order to create an activity.
-```
+</div>
 
 <font color="caramel"> _Request_ </font>
 ​
@@ -365,17 +394,17 @@ You must be an instructor or a facilitator in order to create an activity.
 }
 ```
 
-### <font color="gree"> POST </font> Submit an activity
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/activities/
-```
+<font size="4">POST /activities/<int:activity_id>/submissions/</font>
+<br></br>
+<font size="4"> Submit an activity</font>
+<br></br>
+<font size="4">You must be a student in order to submit an activity.</font>
 
-```json
-You must be a student in order to submit an activity.
-```
+</div>
 
 <font color="caramel"> _Request_ </font>
 ​
@@ -400,17 +429,18 @@ You must be a student in order to submit an activity.
 }
 ```
 
-### <font color="gree"> PUT </font> Evaluate an activity submission.
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/submissions/>int:submission_id>/
-```
+<font size="4">PUT /activities/<int:activity_id>/submissions/</font>
 
-```json
-You must be an instructor or a facilitator in order evaluate an activity submission.
-```
+<br></br>
+<font size="4"> Evaluate an activity submission.</font>
+<br></br>
+<font size="4">You must be an instructor or a facilitator in order evaluate an activity submission.</font>
+
+</div>
 
 <font color="caramel"> _Request_ </font>
 ​
@@ -435,18 +465,19 @@ You must be an instructor or a facilitator in order evaluate an activity submiss
 }
 ```
 
-### <font color="purple"> GET </font> List all submissions
+<br></br>
 
-​
+<div align ="center">
 
-```json
-/api/submissions/
-```
+<font size="4">GET /submissions/</font>
 
-```json
-You need a token to access this route, if the token is from a student, it'll show hers/his submissions, if it's
-an instructor or facilitator it'll list all student's submissions.
-```
+<br></br>
+<font size="4"> List all submissions</font>
+<br></br>
+<font size="4">You need a token to access this route, if the token is from a student, it'll show hers/his submissions, if it's
+an instructor or a facilitator it'll list all student's submissions.</font>
+
+</div>
 
 <font color="yellow"> _Response_ </font>
 ​

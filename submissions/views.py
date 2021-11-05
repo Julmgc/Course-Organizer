@@ -1,13 +1,13 @@
-from accounts.permissions import Facilitator, Instructor, Instructor_Facilitator
-from rest_framework import  status
+from accounts.permissions import Instructor_Facilitator
+from activities.models import Activities
+from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
 from .models import Submissions
 from .serializers import SubmissionSerializer
-from activities.models import Activities
-from django.contrib.auth.models import User
 
 
 class ActivitySubmissionView(APIView):

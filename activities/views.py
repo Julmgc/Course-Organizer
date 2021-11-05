@@ -1,12 +1,14 @@
-from accounts.permissions import Facilitator, Instructor, Instructor_Facilitator
-from rest_framework import  status
+from accounts.permissions import Instructor_Facilitator
+from django.db import IntegrityError
+from django.shortcuts import get_object_or_404
+from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.db import IntegrityError
+
 from .models import Activities
 from .serializers import ActivitySerializer
-from django.shortcuts import get_object_or_404
+
 
 class ActivityView(APIView):
     authentications_classes = [TokenAuthentication]
