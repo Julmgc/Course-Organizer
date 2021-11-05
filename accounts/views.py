@@ -12,11 +12,14 @@ class UserRegister(APIView):
     def post(self, request):
       
         data = request.data
+
         if User.objects.filter(username=data["username"]).exists():
             return Response({"message": "User already exists"}, status=status.HTTP_409_CONFLICT)
+
         user = User.objects.create_user(**data)
         serializer = AccountSerializer(user)
         response = {**serializer.data, "is_superuser": user.is_superuser, "is_staff": user.is_staff}
+        
         return Response(response, status=status.HTTP_201_CREATED)
     
 

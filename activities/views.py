@@ -19,18 +19,23 @@ class ActivityView(APIView):
           data = request.data
           activity = Activities.objects.create(**data)
           serializer = ActivitySerializer(activity)
+
           return Response(serializer.data, status=status.HTTP_201_CREATED)
 
       except IntegrityError:
+
           return Response({'error': 'Activity with this name already exists'}, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
         user = request.user
+
         if user.is_staff or user.is_superuser:
             activities = Activities.objects.all()
             serializer = ActivitySerializer(activities, many=True)
+
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
+
             return Response({ "detail": "You do not have permission to perform this action."}, status=status.HTTP_403_FORBIDDEN)
 
 class ActivityViewQuery(APIView):
@@ -44,14 +49,19 @@ class ActivityViewQuery(APIView):
 
             if hasattr(activity, "submissions"):
                 if activity.submissions.first():
+
                     return Response({'error': 'You can not change an Activity with submissions'}, status=status.HTTP_400_BAD_REQUEST)
+
             title = data["title"]
             points = data["points"]
             activity.title = title
             activity.points = points
             activity.save()
             serializer = ActivitySerializer(activity)
+
             return Response(serializer.data, status=status.HTTP_200_OK)
+
         except IntegrityError:
+            
             return Response({'error': 'Activity with this name already exists'}, status=status.HTTP_400_BAD_REQUEST)
     
