@@ -11,6 +11,7 @@ from .serializers import ActivitySerializer
 
 
 class ActivityView(APIView):
+    
     authentications_classes = [TokenAuthentication]
     permission_classes = [Instructor_Facilitator]
 
@@ -27,18 +28,15 @@ class ActivityView(APIView):
           return Response({'error': 'Activity with this name already exists'}, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
-        user = request.user
+          
+        activities = Activities.objects.all()
+        serializer = ActivitySerializer(activities, many=True)
 
-        if user.is_staff or user.is_superuser:
-            activities = Activities.objects.all()
-            serializer = ActivitySerializer(activities, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
-
-            return Response({ "detail": "You do not have permission to perform this action."}, status=status.HTTP_403_FORBIDDEN)
 
 class ActivityViewQuery(APIView):
+
     authentications_classes = [TokenAuthentication]
     permission_classes = [Instructor_Facilitator]
 

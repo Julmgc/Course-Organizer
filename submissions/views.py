@@ -35,6 +35,7 @@ class ActivitySubmissionView(APIView):
 
             return Response({'error': 'Activity not found'}, status=status.HTTP_404_NOT_FOUND)
 
+
 class SubmissionView(APIView):
 
     authentications_classes = [TokenAuthentication]

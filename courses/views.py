@@ -12,14 +12,12 @@ from .serializers import CourseSerializer
 
 
 class CourseView(APIView):
+
     authentications_classes = [TokenAuthentication]
     permission_classes = [Instructor]
 
     def post(self, request):
       
-        user = request.user
-
-        if user.is_staff and user.is_superuser:
             data = request.data
 
             if Course.objects.filter(name=data["name"]).exists():
@@ -31,10 +29,6 @@ class CourseView(APIView):
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        else:
-
-            return Response({"detail": "You do not have permission to perform this action."}, status=status.HTTP_403_FORBIDDEN)
-      
 
     def get(self, request):
 
@@ -43,18 +37,15 @@ class CourseView(APIView):
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 class CourseViewQuery(APIView):
+    
     authentications_classes = [TokenAuthentication]
     permission_classes = [Instructor]
 
     def put(self, request, course_id=''):
         try:
             course = get_object_or_404(Course, id=course_id)
-            
-            if not course:
-
-                return Response(status=status.HTTP_404_NOT_FOUND)
-
             course.name = request.data["name"]
             course.save()
             serializer = CourseSerializer(course)
@@ -68,23 +59,17 @@ class CourseViewQuery(APIView):
     def delete(self, request, course_id=''):
 
         try:
-            user = request.user
-
-            if user.is_staff and user.is_superuser:
                 course = Course.objects.get(id=course_id)
                 course.delete()
 
                 return Response(status=status.HTTP_204_NO_CONTENT)
-
-            else:
-
-                return Response(status=status.HTTP_403_FORBIDDEN)
 
         except Course.DoesNotExist:
 
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def get(self, request, course_id=''):
+
         try:
             course =  Course.objects.get(id=course_id)
 

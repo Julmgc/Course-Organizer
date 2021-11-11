@@ -23,7 +23,6 @@ class UserRegister(APIView):
         return Response(response, status=status.HTTP_201_CREATED)
     
 
-
 class UserLogin(APIView):
     def post(self, request):
       
