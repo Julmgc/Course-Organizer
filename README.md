@@ -1,6 +1,6 @@
 ​<div align ="center">
 
-## <font size="7">**Kanvas**</font>
+## <font size="7">**Course organizer**</font>
 
 </div>
 <br></br>
@@ -32,7 +32,7 @@ License: MIT</font>
 ​
 
 <div align ="center" font size="4">
-<font size="4">On your terminal, choose where you would like to clone the project, paste git clone paste_the_copy_link_here, then cd kanvas.
+<font size="4">On your terminal, choose where you would like to clone the project, paste git clone paste_the_copy_link_here, then cd course.
 Create a virtual environment: python -m venv venv, get inside the venv source venv/bin/activate, now install all dependencies:
 
 pip install -r requirements.txt

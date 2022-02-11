@@ -34,7 +34,7 @@ class UserLogin(APIView):
             
             return Response({"token": token.key})
         else:
-            return Response({"message": "You are not registered, please create an account."}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"message": "You are not registered, please create an account."}, status=status.HTTP_400_BAD_REQUEST)
         
 
     
