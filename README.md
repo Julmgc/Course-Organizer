@@ -11,7 +11,7 @@
 </div>
 <br></br>
 <div align ="center" font size="4">
-<font size="4">This is an app for a school, that allows instructors, facilitators and students to register, create courses, activities and
+<font size="4">This is an API for a school, that allows instructors, facilitators and students to register, create courses, activities and
 submit them. The technologies used were, Django, Django rest_framework and SQLite.
 
 License: MIT</font>
